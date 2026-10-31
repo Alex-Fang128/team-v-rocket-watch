@@ -2,13 +2,13 @@
 
 A space-themed PCC hackathon project built with React, TypeScript, Vite, and Leaflet. No AI API, map API key, or backend database is needed.
 
-**Live website:** https://launchpoint-pcc-2026.floralnote.chatgpt.site/
+**Live website:** https://alex-fang128.github.io/team-v-rocket-watch/
 
 ## GitHub Pages hosting
 
 The repository includes `.github/workflows/pages.yml` to test, build, and publish the website after changes reach `main`. The build sets Vite's asset base to the repository name, including the Earth texture, while the normal local build keeps its existing root address.
 
-One-time activation: open repository **Settings → Pages**, then choose **GitHub Actions** under **Build and deployment → Source**. From **Actions → Publish rocket tracker**, run or re-run the workflow after activation. The website address will be https://alex-fang128.github.io/team-v-rocket-watch/ after deployment succeeds. This does not require a paid domain. The existing hosted website stays available during setup.
+GitHub Pages is enabled with **GitHub Actions** as its source. The **Publish rocket tracker** workflow automatically publishes successful changes to `main`; it can also be run manually from the Actions tab. Hosting is free and does not require a paid domain. The original hosted website remains available as a backup at https://launchpoint-pcc-2026.floralnote.chatgpt.site/.
 
 ## Earth background
 

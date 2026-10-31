@@ -4,6 +4,12 @@ A space-themed PCC hackathon project built with React, TypeScript, Vite, and Lea
 
 **Live website:** https://launchpoint-pcc-2026.floralnote.chatgpt.site/
 
+## GitHub Pages hosting
+
+The repository includes `.github/workflows/pages.yml` to test, build, and publish the website after changes reach `main`. The build sets Vite's asset base to the repository name, including the Earth texture, while the normal local build keeps its existing root address.
+
+One-time activation: open repository **Settings → Pages**, then choose **GitHub Actions** under **Build and deployment → Source**. From **Actions → Publish rocket tracker**, run or re-run the workflow after activation. The website address will be https://alex-fang128.github.io/team-v-rocket-watch/ after deployment succeeds. This does not require a paid domain. The existing hosted website stays available during setup.
+
 ## Earth background
 
 The dark, star-filled landing view includes a continuously rotating, textured globe and yellow markers at 27 curated major orbital launch facilities worldwide. The campus guide remains local to PCC. Select a site from the dropdown to face it; the play/pause button controls rotation. Drag or swipe horizontally and vertically to rotate the globe. Marker positions follow the same longitude/latitude view as the texture. A swipe releases into a short, exponentially damped glide, then automatic rotation resumes if Play is enabled. Grabbing again, choosing a site, resetting, or using the keyboard cancels remaining momentum. Reduced-motion preferences start the globe paused and disable the release glide. Hovering or focusing a marker suspends rotation while interacting. The globe rotates at 0.13 radians/second. Reset returns to the Americas view; focused globe controls accept arrow keys and Home. Drawing stops while the page is hidden.

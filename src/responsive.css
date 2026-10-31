@@ -1,0 +1,118 @@
+/* Give copy, globe controls, and maps their own space instead of relying on overlap. */
+.intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);gap:24px;align-items:center;min-height:680px;padding:25px 0 95px}
+.intro-copy{width:auto;min-width:0;max-width:100%;grid-column:1;grid-row:1}
+.intro h1{font-size:clamp(46px,5vw,72px);letter-spacing:-3px;overflow-wrap:normal}
+.earth-stage{position:relative;grid-column:2;grid-row:1;width:calc(100% + 50px);height:auto;aspect-ratio:1;top:auto;bottom:auto;right:auto;margin:-15px -25px 20px;justify-self:center;pointer-events:none;touch-action:pan-y}
+.earth-canvas{pointer-events:none;background:transparent;border-radius:50%}
+.earth-input{position:absolute;inset:6.5%;border-radius:50%;pointer-events:auto;touch-action:none;cursor:grab}
+.earth-pin{pointer-events:auto;touch-action:manipulation}
+.earth-pin[data-label-side="left"] .earth-pin-label{left:auto;right:22px}
+.earth-pin-label{max-width:190px;white-space:normal;width:max-content}
+.earth-hud{width:min(350px,43%);right:0;bottom:80px}
+.rotation-toggle{width:40px;height:40px}.earth-controls select{min-height:40px;min-width:0;text-overflow:ellipsis}
+.topbar nav a,.topbar nav button{white-space:nowrap}
+.topbar nav button{position:relative;align-self:stretch}
+.topbar nav .nav-active::after{left:0;right:0}
+.topbar nav button.nav-active{color:#f4f8ff;font-weight:650}
+.viewer-grid>*{min-width:0}.map-shell{height:clamp(320px,48svh,420px);min-height:320px;min-width:0}
+.sightline-shell{height:clamp(270px,36svh,340px);min-height:270px}
+.map-label{max-width:calc(100% - 75px)}.map-label>div{min-width:0}.map-label strong,.map-label small{overflow-wrap:anywhere}
+.map-caption{max-width:calc(100% - 65px);flex-wrap:wrap;line-height:1.5}
+.user-location-pin{display:grid;place-items:center;background:transparent;border:0}
+.user-location-pin>span{width:18px;height:18px;border:3px solid #fff;border-radius:50%;background:#278bff;box-shadow:0 0 0 6px #278bff33,0 2px 8px #06244f88}
+.leaflet-tooltip.user-location-label{background:#123b66;color:#fff;border:1px solid #88bdff;border-radius:5px;padding:6px 10px;font-size:12px;font-weight:650;box-shadow:0 2px 8px #001b3b44}
+.leaflet-tooltip-top.user-location-label::before{border-top-color:#88bdff}
+.legend-user{width:8px;height:8px;border:1px solid #fff;border-radius:50%;background:#278bff;flex-shrink:0;margin-left:7px}
+.spot-card{min-width:0}.spot-card h3{overflow-wrap:anywhere}
+.leaflet-control-attribution{max-width:100%;white-space:normal}
+.location-button,.schedule-tabs>button,.webcast-placeholder>button{min-height:40px}
+@media(max-width:1100px) and (min-width:761px){.topbar nav{gap:20px}.edition{display:none}}
+@media(max-width:900px){
+  .intro{display:flex;flex-direction:column;align-items:stretch;gap:0;min-height:0;padding:38px 0 0}
+  .intro-copy{width:100%;max-width:650px;align-self:center;text-align:center}
+  .intro .eyebrow,.hero-location{justify-content:center}.intro h1{font-size:clamp(40px,7vw,62px);letter-spacing:-2.4px;margin-top:21px}
+  .intro p{font-size:13px;line-height:1.8}.intro .desktop-break{display:none}
+  .hero-cta{margin-top:23px}.hero-location{margin-top:18px;flex-wrap:wrap;line-height:1.8}
+  .earth-stage{position:relative;width:min(100%,580px);height:auto;aspect-ratio:1;top:auto;bottom:auto;right:auto;margin:8px auto 0;align-self:center;transform:none;opacity:1}
+  .earth-hud{position:relative;right:auto;bottom:auto;width:min(100%,420px);align-self:center;margin:-8px auto 20px;padding:15px 17px}
+  .earth-controls{gap:9px}.rotation-toggle{height:44px;width:44px}.earth-controls select{font-size:12px;min-height:44px}
+  .earth-hud-heading{font-size:8px;letter-spacing:1px}.earth-coordinates.earth-coordinates{font-size:9px;line-height:1.8;overflow-wrap:anywhere}.globe-help{font-size:10px;line-height:1.6}
+  .hero-bottom{position:relative;bottom:auto;left:auto;right:auto;gap:10px;flex-wrap:wrap;margin-top:0;padding:12px 0 18px}
+  .hero-bottom>a{font-size:8px;line-height:1.8;letter-spacing:1px}.hero-bottom>span{font-size:7px;max-width:none;text-align:left;line-height:1.8;letter-spacing:.5px}
+  .launch-panel-row{grid-template-columns:1fr}.panel-heading{flex-wrap:wrap}
+  .spot-grid{grid-template-columns:1fr}.spot-card h3{font-size:18px}.spot-card>p{font-size:12px}.spot-tags span{font-size:10px}.spot-bottom>span{font-size:11px}
+}
+@media(max-width:760px){
+  .intro{padding-top:30px}.intro-copy{max-width:100%}.intro h1{font-size:clamp(38px,10vw,52px)}
+  .hero-location{font-size:8px;max-width:none}.earth-stage{width:100%;max-width:480px}
+  .earth-hud{padding:14px;width:100%;max-width:420px}.earth-controls select{font-size:11px}
+  .earth-coordinates.earth-coordinates{font-size:8px}.globe-help{font-size:9px}
+  .location-bar{flex-wrap:wrap;gap:10px}.location-button{min-height:44px;font-size:11px}.location-status,.data-note{font-size:11px;line-height:1.7}
+  .location-bar>div{font-size:11px}.panel-footnote{font-size:11px}.panel-source,.webcast-links>a{font-size:11px;line-height:1.8}
+  .selected-details p{font-size:12px}.selected-details .directions-button{min-height:44px}
+  .weather-metrics>div>span{font-size:11px;line-height:1.6}.weather-verdict p{font-size:12px}
+  .compass-note{font-size:10px}.visibility-card>p{font-size:11px}.conditions{font-size:10px}
+  .schedule-item{min-height:68px}.schedule-details strong{font-size:13px}.schedule-details small{font-size:11px}.schedule-details>span{font-size:10px}
+  .leaflet-control-zoom a{width:44px!important;height:44px!important;line-height:44px!important}
+  .webcast-screen{min-height:190px}.webcast-placeholder{padding:12px}.schedule-tabs>button{min-height:44px}
+  footer>span,footer>a:last-child{font-size:10px}.how-strip{align-items:flex-start}.how-strip p{font-size:11px;line-height:1.8}.how-strip>button{min-height:40px}
+}
+@media(max-width:380px){
+  .topbar{gap:8px;padding:0 15px}.topbar .brand{font-size:20px}.topbar .brand-mark{width:26px;height:26px;margin-right:7px}
+  .topbar nav{gap:13px}.topbar nav a{font-size:10px}
+  main{padding:0 16px}.intro h1{font-size:38px;letter-spacing:-1.9px}.intro .eyebrow{font-size:7px;letter-spacing:1.1px}
+  .earth-hud-heading{font-size:7px;letter-spacing:.7px}.earth-count{font-size:7px}.earth-hud{padding:12px}
+  .hero-bottom{display:block}.hero-bottom>span{display:block;margin-top:10px}
+  .clock{gap:15px}.clock i{right:-11px}.clock b{font-size:25px}.countdown>.eyebrow{font-size:7px;max-width:98px}
+  .mission{padding:16px}.weather-panel,.webcast-panel,.sightline-panel,.schedule-panel{padding:16px}.weather-metrics{gap:10px}.weather-metrics>div+div{padding-left:10px}
+  .panel-heading h2{font-size:20px}.weather-metrics strong{font-size:33px}
+}
+
+/* Nav: one sliding highlight bar instead of per-tab underlines */
+.topbar nav{position:relative}
+.topbar nav .nav-active::after{display:none}
+.nav-indicator{position:absolute;left:0;bottom:0;height:2px;background:#f2cf5d;border-radius:2px 2px 0 0;pointer-events:none;transition:transform .22s cubic-bezier(.2,.7,.2,1),width .22s cubic-bezier(.2,.7,.2,1)}
+@media(prefers-reduced-motion:reduce){.nav-indicator{transition:none}}
+
+/* Map: locate-me button above the zoom control */
+.map-locate{position:absolute;right:10px;bottom:92px;z-index:500;width:34px;height:34px;display:flex;align-items:center;justify-content:center;border:1px solid #557084;border-radius:6px;background:#0d2b44;color:#dcecff;box-shadow:0 1px 5px #0005}
+.map-locate:hover{background:#163a58}
+.map-locate.on{color:#5aabff;border-color:#5aabff}
+.map-locate:disabled{opacity:.6}
+
+/* Schedule: every launch row carries its external links */
+.schedule-item{flex-direction:column;align-items:stretch;gap:9px}
+.schedule-select{width:100%;display:flex;align-items:center;gap:12px;padding:0;text-align:left;background:transparent;border:0;color:inherit;font:inherit;cursor:pointer}
+div.schedule-select{cursor:default}
+.schedule-select>svg:last-child{margin-left:auto;color:#b7cee1}
+.schedule-links{display:flex;flex-wrap:wrap;gap:6px;padding-left:30px}
+.schedule-links a{display:inline-flex;align-items:center;gap:5px;font-size:10px;color:#cfe1f1;border:1px solid #36546d;border-radius:4px;padding:5px 8px;background:#0e263b}
+.schedule-links a:hover{border-color:#ead180;color:#fff}
+.schedule-links a svg{color:#ead180}
+@media(max-width:760px){.schedule-links a{font-size:11px;padding:8px 10px}}
+
+/* Built-in vector basemaps (used when external map tiles are blocked) */
+.leaflet-map,.sightline-map{background:#0f2a40}
+.road-label span,.city-label span{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;font-size:10px;font-weight:600;letter-spacing:.3px;color:#b9cfe2;text-shadow:0 0 3px #0b2133,0 0 3px #0b2133,0 0 6px #0b2133;pointer-events:none}
+.city-label span{transform:translate(6px,-50%);font-size:10px;font-weight:500;color:#9fb9cf}
+.map-offline{position:absolute;right:10px;top:72px;z-index:500;font-size:9px;letter-spacing:.4px;color:#a9c3d8;background:#0d2942e0;border:1px solid #385875;border-radius:4px;padding:4px 7px;pointer-events:none}
+.sightline-shell .map-offline{top:10px}
+
+/* Tap-to-place location */
+.leaflet-map.picking,.leaflet-map.picking .leaflet-interactive{cursor:crosshair!important}
+.map-pick-hint{position:absolute;left:50%;top:72px;transform:translateX(-50%);z-index:500;background:#278bff;color:#fff;font-size:12px;font-weight:650;padding:8px 14px;border-radius:999px;box-shadow:0 4px 16px #0006;pointer-events:none}
+
+/* Explicit text colors so a host page's reset can't turn text black */
+body,.app{color:#eef5ff}
+.app a{color:inherit}
+.app .directions-button,.app .directions-button:visited{color:#112840;font-weight:650}
+.brand{color:#f4f8ff}
+.text-button{color:#f2d76e}
+.text-button+.text-button{margin-left:18px}
+
+/* Webcast: waiting state + replay option */
+.webcast-actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
+.webcast-actions>button{display:flex;align-items:center;gap:8px;border:1px solid #bfae6c;color:#172e42;background:#e8ce7e;border-radius:4px;padding:10px 13px;font-size:11px}
+.webcast-actions>button+button{background:#1d3d58;color:#e6f1fb;border:1px solid #4a6a86}
+.webcast-placeholder>p{max-width:360px;text-align:center}
+.link-button{background:none;border:0;padding:0;color:#e6f1fb;font-size:inherit;text-decoration:underline;text-underline-offset:2px}

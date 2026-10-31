@@ -1,0 +1,13 @@
+node_modules/
+dist/
+*.tsbuildinfo
+work/
+outputs/
+.openai/
+.codex/
+.agents/
+.env*
+!.env.example
+.DS_Store
+Thumbs.db
+*.log

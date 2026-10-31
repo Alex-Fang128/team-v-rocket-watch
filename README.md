@@ -39,6 +39,7 @@ On this computer, dependencies are already installed. From the project folder yo
 - Google Maps walking-directions links, responsive layout, and information dialog.
 - Launch-hour cloud-cover forecasts over PCC and the selected pad, with freshness and uncertainty labels.
 - Official webcast links plus an optional embedded YouTube player, clearly distinguishing community restreams.
+- A replay started before expected coverage automatically switches to the current launch stream at the scheduled coverage time. Viewers can keep the replay instead, open the current stream early, reload the player, or use a direct broadcast link. Autoplay starts muted and may still require pressing Play; the broadcaster controls when video actually begins.
 - PCC-to-pad map, distance, true-north bearing, and a curvature-only altitude estimate.
 
 ## Team integration
